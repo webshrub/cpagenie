@@ -1,0 +1,17 @@
+.containertable {
+	display: inline;
+}
+
+.containerform {
+	text-align:  center;
+}
+
+.cpafieldlabel{
+	display: block;
+    min-height: 25px;
+    min-width: 100px;
+    text-align: right;
+}
+.cpafieldtext{
+	
+}

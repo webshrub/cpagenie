@@ -1,0 +1,11 @@
+1. Create a database named as cpagenie on localhost with user/password as cpagenie/cpagenie
+    drop database if exists cpagenie;
+    create database cpagenie;
+    drop user 'cpagenie'@'localhost';
+    CREATE USER 'cpagenie'@'localhost' identified by 'cpagenie';
+    GRANT ALL PRIVILEGES ON cpagenie.* TO 'cpagenie'@'localhost';
+2. Open app/dbscripts/dbschema.sql and execute it on created database cpagenie.
+3. Modify common.properties of core, app and server module.
+4. Execute install-app target of both app and server module.
+5. Start tomcat.
+6. Access http://localhost:8080/app with admin/welcome

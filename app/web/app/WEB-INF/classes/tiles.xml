@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="layout.definition" template="/layout.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="body" value=""/>
+    </definition>
+
+    <definition name="secure/dashboard" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie Dashboard"/>
+        <put-attribute name="body" value="/secure/dashboard.jsp"/>
+    </definition>
+
+    <definition name="secure/advertiser/create" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Add Advertiser"/>
+        <put-attribute name="body" value="/secure/advertiser/create.jsp"/>
+    </definition>
+
+    <definition name="secure/advertiser/list" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - View Advertiser"/>
+        <put-attribute name="body" value="/secure/advertiser/list.jsp"/>
+    </definition>
+
+    <definition name="secure/campaign/create" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Add Campaign"/>
+        <put-attribute name="body" value="/secure/campaign/create.jsp"/>
+    </definition>
+
+    <definition name="secure/campaign/list" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - View Campaign"/>
+        <put-attribute name="body" value="/secure/campaign/list.jsp"/>
+    </definition>
+
+    <definition name="admin/validationrule/create" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Add Validation Rule"/>
+        <put-attribute name="body" value="/admin/validationrule/create.jsp"/>
+    </definition>
+
+    <definition name="admin/validationrule/list" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - View Validation Rule"/>
+        <put-attribute name="body" value="/admin/validationrule/list.jsp"/>
+    </definition>
+
+    <definition name="admin/user/create" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Add User"/>
+        <put-attribute name="body" value="/admin/user/create.jsp"/>
+    </definition>
+
+    <definition name="admin/user/list" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - View User"/>
+        <put-attribute name="body" value="/admin/user/list.jsp"/>
+    </definition>
+
+    <definition name="admin/user/assignadvertiser" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Assign Advertiser"/>
+        <put-attribute name="body" value="/admin/user/assignadvertiser.jsp"/>
+    </definition>
+
+    <definition name="admin/user/assignrole" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Assign Role"/>
+        <put-attribute name="body" value="/admin/user/assignrole.jsp"/>
+    </definition>
+
+    <definition name="secure/account/settings" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Account Settings"/>
+        <put-attribute name="body" value="/secure/account/settings.jsp"/>
+    </definition>
+
+    <definition name="secure/report/impressionreport" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Impression Report"/>
+        <put-attribute name="body" value="/secure/report/impressionreport.jsp"/>
+    </definition>
+
+    <definition name="secure/report/leadreport" extends="layout.definition">
+        <put-attribute name="title" value="CPAGenie - Lead Report"/>
+        <put-attribute name="body" value="/secure/report/leadreport.jsp"/>
+    </definition>
+</tiles-definitions>

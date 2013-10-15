@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="dist" name="core">
+    <property name="classes" location="classes"/>
+    <target name="dist" description="generate the distribution">
+        <jar jarfile="core.jar">
+            <fileset dir="${classes}"/>
+        </jar>
+        <ftp server="182.50.141.85" userid="cpagenie" password="" remotedir="cpagenie/trunk/core">
+            <fileset dir=".">
+                <include name="core.jar"/>
+                <include name="run.xml"/>
+            </fileset>
+        </ftp>
+    </target>
+    <target name="run">
+        <java classname="${class}" failonerror="true" fork="yes">
+            <jvmarg line="-Xms128m -Xmx1000m"/>
+            <classpath>
+                <pathelement path="bin"/>
+                <pathelement location="config"/>
+                <pathelement location="data"/>
+                <pathelement path="dbscripts"/>
+                <pathelement path="scripts"/>
+                <pathelement location="resources"/>
+                <pathelement path="${java.class.path}"/>
+                <fileset dir=".">
+                    <include name="core.jar"/>
+                </fileset>
+                <fileset dir="lib">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <arg value="${arg1}"/>
+            <arg value="${arg2}"/>
+        </java>
+    </target>
+</project>

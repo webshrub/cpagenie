@@ -1,0 +1,104 @@
+<project name="cpagenie-core" default="install-core">
+    <property file="common.properties"/>
+    <property name="bindir" value="${basedir}/bin"/>
+    <property name="classesdir" value="${basedir}/classes"/>
+    <property name="datadir" value="${basedir}/data"/>
+    <property name="dbscriptsdir" value="${basedir}/dbscripts"/>
+    <property name="libdir" value="${basedir}/lib"/>
+    <property name="resourcesdir" value="${basedir}/resources"/>
+    <property name="sourcedir" value="${basedir}/src"/>
+    <property name="temp.properties" value="temp.properties"/>
+
+    <path id="libraries">
+        <fileset dir="${libdir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="${classesdir}"/>
+        <mkdir dir="${classesdir}"/>
+    </target>
+
+    <target name="compile" depends="clean, copy-resources">
+        <javac srcdir="${sourcedir}" destdir="${classesdir}" classpathref="libraries"/>
+    </target>
+
+    <target name="compile-only" depends="clean">
+        <javac srcdir="${sourcedir}" destdir="${classesdir}" source="1.5" target="1.5" debug="on">
+            <exclude name="**/test/**"/>
+            <classpath>
+                <fileset dir="${libdir}" includes="**/*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="copy-resources">
+        <copy todir="${classesdir}">
+            <fileset dir="${sourcedir}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <antcall target="replace-tokens"/>
+        <copy todir="${classesdir}">
+            <fileset dir="${resourcesdir}" includes="*.*" excludes="template.*"/>
+        </copy>
+    </target>
+
+    <macrodef name="copy-templates">
+        <attribute name="src.dir"/>
+        <attribute name="dest.dir" default="@{src.dir}"/>
+        <attribute name="properties.file" default="${temp.properties}"/>
+        <sequential>
+            <copy todir="@{dest.dir}" overwrite="true" failonerror="false">
+                <fileset dir="@{src.dir}" includes="template.*"/>
+                <filterchain>
+                    <filterreader classname="org.apache.tools.ant.filters.ReplaceTokens">
+                        <param type="propertiesfile" value="@{properties.file}"/>
+                    </filterreader>
+                </filterchain>
+                <mapper type="glob" from="template.*" to="*"/>
+            </copy>
+        </sequential>
+    </macrodef>
+
+    <target name="echoproperties">
+        <property file="remap.properties"/>
+        <delete file="${temp.properties}"/>
+        <echoproperties destfile="${temp.properties}"/>
+    </target>
+
+    <target name="replace-tokens" depends="echoproperties">
+        <copy-templates src.dir="${resourcesdir}"/>
+    </target>
+
+    <target name="install-core" depends="compile">
+        <copy todir="${rootdir}/bin">
+            <fileset dir="${bindir}"/>
+        </copy>
+        <copy todir="${rootdir}/classes">
+            <fileset dir="${classesdir}"/>
+        </copy>
+        <copy todir="${rootdir}/data">
+            <fileset dir="${datadir}"/>
+        </copy>
+        <copy todir="${rootdir}/dbscripts">
+            <fileset dir="${dbscriptsdir}"/>
+        </copy>
+        <copy todir="${rootdir}/lib">
+            <fileset dir="${libdir}"/>
+        </copy>
+        <mkdir dir="${rootdir}/logs"/>
+    </target>
+
+    <!--<target name="uninstall-core">-->
+    <!--<delete dir="${rootdir}" />-->
+    <!--</target>-->
+
+    <target name="jar" depends="compile-only">
+        <echo message="##### running jar #####"/>
+        <jar basedir="${classesdir}" destfile="core.jar"/>
+        <copy file="core.jar" todir="../app/lib"/>
+        <copy file="core.jar" todir="../server/lib"/>
+    </target>
+</project>

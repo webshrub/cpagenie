@@ -1,0 +1,886 @@
+ul.nice-menu li.hovering ul {
+    display: block;
+    visibility: visible;
+}
+
+form {
+    margin: 0pt;
+    padding: 0pt;
+}
+
+hr {
+    height: 1px;
+    border: 1px solid gray;
+}
+
+img {
+    border: 0pt none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.clear-block:after {
+    content: ".";
+    display: block;
+    height: 0pt;
+    clear: both;
+    visibility: hidden;
+}
+
+.clear-block {
+    display: inline-block;
+}
+
+.clear-block {
+    display: block;
+}
+
+tbody {
+    border-top: 1px solid rgb(204, 204, 204);
+}
+
+.block ul {
+    margin: 0pt;
+    padding: 0pt 0pt 0.25em 1em;
+}
+
+.rtecenter {
+    text-align: center;
+}
+
+ul.nice-menu, ul.nice-menu ul {
+    z-index: 5;
+    position: relative;
+}
+
+ul.nice-menu li {
+    position: relative;
+}
+
+ul.nice-menu a {
+    display: block;
+}
+
+ul.nice-menu ul, #header-region ul.nice-menu ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+ul.nice-menu ul li {
+    display: block;
+}
+
+ul.nice-menu:after {
+    content: ".";
+    display: block;
+    height: 0pt;
+    clear: both;
+    visibility: hidden;
+}
+
+ul.nice-menu li:hover ul, ul.nice-menu li.menuparent li:hover ul, ul.nice-menu li.menuparent li.menuparent li:hover ul, ul.nice-menu li.menuparent li.menuparent li.menuparent li:hover ul, ul.nice-menu li.over ul, ul.nice-menu li.menuparent li.over ul, ul.nice-menu li.menuparent li.menuparent li.over ul, ul.nice-menu li.menuparent li.menuparent li.menuparent li.over ul, #header-region ul.nice-menu li:hover ul, #header-region ul.nice-menu li.menuparent li:hover ul, #header-region ul.nice-menu li.menuparent li.menuparent li:hover ul, #header-region ul.nice-menu li.over ul, #header-region ul.nice-menu li.menuparent li.over ul, #header-region ul.nice-menu li.menuparent li.menuparent li.over ul {
+    visibility: visible;
+}
+
+ul.nice-menu li.menuparent ul, #header-region ul.nice-menu li.menuparent ul {
+    overflow: visible ! important;
+}
+
+ul.nice-menu, ul.nice-menu ul {
+    list-style: none outside none;
+    padding: 0pt;
+    margin: 0pt;
+}
+
+ul.nice-menu li {
+    border-top: 0pt none;
+    float: left;
+    margin: 0pt;
+    padding-left: 0pt;
+    background: url('../images/separator.png') no-repeat scroll right center transparent;
+}
+
+ul.nice-menu a {
+    text-decoration: none;
+    font: 12px / 18px Arial;
+    color: rgb(51, 51, 51);
+    padding: 10px 27px 8px;
+}
+
+ul.nice-menu ul a {
+    letter-spacing: normal;
+}
+
+ul.nice-menu li.sfHover a, ul.nice-menu a:hover {
+    background: url('../images/hover.png') no-repeat scroll right top transparent;
+}
+
+ul.nice-menu ul {
+    top: 35px;
+    left: -1px;
+    border: 0pt none;
+    margin-right: 0pt;
+}
+
+ul.nice-menu ul li {
+    width: 12.5em;
+}
+
+ul.nice-menu-down {
+    float: left;
+    border: 0pt none;
+}
+
+ul.nice-menu-down li {
+}
+
+ul.nice-menu-down li li {
+    border-top: 0pt none;
+    background: none repeat scroll 0% 0% transparent;
+    width: 201px;
+}
+
+ul.nice-menu-down li.sfHover li a, ul.nice-menu-down li li a {
+    background: url('../images/subnav.png') no-repeat scroll left top transparent;
+    padding: 4px 18px 3px;
+}
+
+ul.nice-menu-down li.sfHover li a.submenu, ul.nice-menu-down li li a.submenu {
+    background: url('../images/subnav-submenu.png') no-repeat scroll left top transparent;
+}
+
+ul.nice-menu-down li.sfHover li.last a, ul.nice-menu-down li li.last a {
+    background: url('../images/subnav-bottom.png') no-repeat scroll left top transparent;
+    padding: 4px 18px 9px;
+}
+
+ul.nice-menu-down li li a:hover {
+    background: url('../images/subnav.png') no-repeat scroll 0pt -25px transparent;
+    text-decoration: none;
+    color: rgb(0, 153, 204);
+}
+
+ul.nice-menu-down li li a.submenu:hover {
+    background: url('../images/subnav-submenu.png') no-repeat scroll 0pt -25px transparent;
+}
+
+ul.nice-menu-down li li.last a:hover {
+    background: url('../images/subnav-bottom.png') no-repeat scroll 0pt -31px transparent;
+}
+
+ul.nice-menu-down ul {
+    left: -4px;
+}
+
+ul.nice-menu-down ul li {
+    clear: both;
+}
+
+ul.nice-menu-down .menuparent a {
+}
+
+ul.nice-menu-down li.menuparent {
+}
+
+ul.nice-menu-down li.menuparent:hover, ul.nice-menu-down li.over {
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0pt;
+    padding: 0pt;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+fieldset, img {
+    border: 0pt none;
+}
+
+ul {
+    list-style: none outside none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a:active, a:focus {
+    outline: 0pt none;
+}
+
+body, td, th {
+    color: rgb(102, 102, 102);
+    font: 12px / 120% Arial, Helvetica, sans-serif;
+}
+
+body#springsource {
+    background: none repeat scroll 0% 0% rgb(238, 238, 238);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0pt;
+    line-height: 120%;
+}
+
+h1 {
+    font-family: Arial, Georgia, "Times New Roman", Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: rgb(255, 102, 0);
+}
+
+h1.title-top {
+    margin: 0pt 0pt 20px;
+}
+
+.front h1 {
+    font: 24px Arial;
+    color: rgb(255, 102, 0);
+}
+
+h2 {
+    font-family: Arial, Georgia, "Times New Roman", Times, serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(255, 102, 0);
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+tbody {
+    border: medium none;
+}
+
+a {
+    color: rgb(0, 153, 204);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 10px 0pt;
+    line-height: 18px;
+}
+
+tr, td, th {
+    padding: 0.15em;
+}
+
+#page-wrapper {
+    width: 968px;
+    margin: 0pt auto;
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+}
+
+#page {
+    padding: 0pt 10px;
+}
+
+#header {
+    position: relative;
+    z-index: 99;
+    width: 948px;
+}
+
+#logo {
+    padding: 22px 0pt 20px 8px;
+}
+
+#top-menu-wrapper {
+    position: absolute;
+    right: 0pt;
+    top: 10px;
+    width: 600px;
+    height: 29px;
+    z-index: 100;
+}
+
+#top-menu {
+    height: 29px;
+}
+
+#top-links {
+    position: absolute;
+    right: 260px;
+}
+
+#top-links ul.nice-menu li.sfHover a, #top-links ul.nice-menu a:hover {
+    background: none repeat scroll 0% 0% transparent;
+}
+
+#top-links ul.nice-menu-down li.menuparent a {
+    background: url('../images/toplink.png') no-repeat scroll left bottom transparent;
+}
+
+#top-links ul.nice-menu-down li.menuparent a:hover, #top-links ul.nice-menu-down li.sfHover a {
+    background: url('../images/toplink-hover.png') no-repeat scroll left bottom transparent;
+}
+
+#top-links ul.nice-menu-down li.sfHover li a, #top-links ul.nice-menu-down li li a {
+    height: 20px;
+    background: url('../images/toplink-sub.png') repeat-x scroll left top transparent;
+}
+
+#top-links ul.nice-menu-down li.sfHover li a:hover, #top-links ul.nice-menu-down li li a:hover {
+    height: 20px;
+    background: url('../images/toplink-sub.png') repeat-x scroll left top transparent;
+}
+
+#top-links ul.nice-menu-down li.sfHover li.last a, #top-links ul.nice-menu-down li li.last a {
+    height: 26px;
+    background: url('../images/toplink-bottom.png') repeat-x scroll left top transparent;
+}
+
+#top-links ul.nice-menu-down li.sfHover li.last a:hover, #top-links ul.nice-menu-down li li.last a:hover {
+    height: 26px;
+    background: url('../images/toplink-bottom.png') repeat-x scroll left top transparent;
+}
+
+#top-links ul {
+    list-style-type: none;
+}
+
+#top-links ul li {
+    list-style-type: none;
+    float: left;
+    margin: 0pt;
+    padding: 0pt;
+    background: url('../images/bg_top_menu_separator.png') no-repeat scroll right center transparent;
+}
+
+#top-links ul li a {
+    text-decoration: none;
+    font: 12px / 18px Arial;
+    padding: 6px 14px;
+    color: rgb(101, 101, 101);
+    border: medium none;
+}
+
+#top-links ul li#menu-342 a {
+    padding: 6px 14px;
+    width: 79px;
+}
+
+#top-links ul li#menu-342 li a {
+    padding: 2px 14px;
+    width: 79px;
+}
+
+#top-links ul li a span {
+    padding: 0pt;
+}
+
+#top-links ul li a:hover, #top-links ul li.sfHover a {
+    height: 16px;
+}
+
+#top-links ul li a:hover {
+    color: rgb(0, 153, 204);
+    text-decoration: none;
+}
+
+#top-links ul li ul {
+    position: absolute;
+    top: 28px;
+    left: 0px;
+    background: none repeat scroll 0% 0% transparent;
+}
+
+#top-links ul li ul li {
+    width: 107px;
+    height: 24px;
+    background: none repeat scroll 0% 0% transparent;
+}
+
+#top-links ul li ul li a {
+    padding: 2px 10px;
+    color: rgb(101, 101, 101);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+#country-flag {
+    position: absolute;
+    right: 210px;
+    padding: 8px 10px;
+}
+
+#search-box {
+    position: absolute;
+    right: 0px;
+    padding: 5px 10px;
+    background: url('../images/search-box.png') no-repeat scroll left top transparent;
+    width: 191px;
+    height: 16px;
+}
+
+#search-box input {
+    float: left;
+}
+
+#search-box .form-text {
+    width: 174px;
+    height: 18px;
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+    border: medium none transparent;
+}
+
+#navigation {
+    background: url('../images/bg_nav.png') repeat-x scroll left top transparent;
+    height: 36px;
+    z-index: 1;
+    margin-bottom: 17px;
+}
+
+#block-nice_menus-1 {
+    background: url('../images/left-box.png') no-repeat scroll left top transparent;
+    padding-left: 3px;
+    height: 36px;
+}
+
+#block-nice_menus-1 .block-inner {
+    background: url('../images/right-box.png') no-repeat scroll right top transparent;
+    padding-right: 3px;
+    height: 36px;
+}
+
+#top-button {
+    position: absolute;
+    top: 52px;
+    right: 0pt;
+    width: 317px;
+    height: 25px;
+}
+
+#top-button a {
+    color: rgb(0, 149, 211);
+    display: block;
+    float: left;
+    width: 99px;
+    height: 24px;
+    line-height: 24px;
+    background: url('../images/bg_top_button.png') no-repeat scroll left top transparent;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#top-button a.last {
+    margin-right: 0pt;
+}
+
+#container {
+    padding: 0pt;
+    margin-top: 20px; /*margin-bottom: 20px;*/
+    z-index: 1;
+    min-height: 400px;
+    height: auto !important;
+    height: 100px;
+}
+
+.front #container {
+    margin-top: 0pt;
+}
+
+#main {
+    width: 936px;
+    float: left;
+}
+
+#banner {
+    width: 948px;
+    margin: 0pt;
+    padding: 0pt;
+    position: relative;
+    z-index: 1;
+}
+
+#banner-right {
+    background: url('../images/billboardright_grey_bg.png') repeat scroll 0pt 0pt transparent;
+    color: rgb(255, 255, 255);
+    height: 250px;
+    position: absolute;
+    right: 0pt;
+    top: 10px;
+    width: 300px;
+    z-index: 5000;
+}
+
+#bottom-wrapper {
+    padding-top: 5px;
+    padding-bottom: 40px;
+    background: url('../images/footer-top.gif') no-repeat scroll left top transparent;
+    font-size: 11px;
+}
+
+.body-node-1973 #bottom-wrapper {
+    margin-top: 20px;
+}
+
+#bottom-wrapper a {
+    color: rgb(102, 102, 102);
+}
+
+#bottom-wrapper ul, #bottom-wrapper li {
+    list-style: disc outside none;
+}
+
+#bottom {
+    padding-bottom: 5px;
+    background: url('../images/footer-bottom.gif') no-repeat scroll left bottom transparent;
+}
+
+#bottom-boxes {
+    background: url('../images/footer-content.gif') repeat-y scroll left top transparent;
+    width: 948px;
+}
+
+#bottom1, #bottom2 {
+    width: 210px;
+    margin-right: 10px;
+    padding: 0pt 10px;
+    float: left;
+}
+
+#bottom3 {
+    width: 211px;
+    margin-right: 10px;
+    padding: 0pt 10px;
+    float: left;
+}
+
+#bottom4 {
+    width: 207px;
+    padding: 0pt 10px;
+    float: left;
+}
+
+#bottom-wrapper h2 {
+    margin: 4px 0pt 10px;
+    font: bold 11px Arial;
+    text-transform: uppercase;
+    color: rgb(102, 102, 102);
+}
+
+#footer-wrapper {
+    margin: 0pt auto;
+    width: 968px;
+}
+
+#footer {
+    text-align: center;
+    color: rgb(102, 102, 102);
+    font-size: 11px;
+}
+
+#footer .block {
+    padding-top: 10px;
+}
+
+#footer a {
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: rgb(102, 102, 102);
+}
+
+#footer p {
+    margin: 0pt;
+}
+
+body.node-type-developers h1.title, body.node-type-about-us h1.title, body.node-type-training h1.title, body.node-type-customer h1.title, body.node-type-exchange h1.title, body.node-type-news-events h1.title, body.node-type-partners h1.title, body.node-type-products h1.title, body.node-type-news-events h1.title, body.node-type-support-services h1.title {
+    display: none;
+}
+
+div.node-inner h2 {
+    color: rgb(255, 102, 0);
+    font-family: Arial, Georgia, "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+h2 a {
+    color: rgb(255, 102, 0);
+}
+
+#triColumn {
+    width: 948px;
+}
+
+#triColumnBuild {
+    width: 264px;
+    float: left;
+    padding: 16px 18px;
+    margin-right: 24px;
+    height: 244px;
+    background: url('../images/bg-build.gif') no-repeat scroll left top transparent;
+}
+
+#triColumnRun {
+    width: 260px;
+    float: left;
+    padding: 16px 20px;
+    margin-right: 24px;
+    height: 244px;
+    background: url('../images/bg-run.gif') no-repeat scroll left top transparent;
+}
+
+#triColumnManage {
+    width: 260px;
+    float: left;
+    padding: 16px 20px;
+    height: 244px;
+    background: url('../images/bg-manage.gif') no-repeat scroll left top transparent;
+}
+
+#triColumn h2 {
+    font: 18px / 30px Arial;
+    color: rgb(0, 149, 211);
+    margin: 0pt;
+}
+
+#triColumn h2 a {
+    color: rgb(0, 149, 211);
+}
+
+#triColumn p {
+    margin: 0pt 0pt 10px;
+    line-height: 18px;
+}
+
+#node-1973 h1.title-top {
+    display: none;
+}
+
+table td {
+    vertical-align: top;
+}
+
+.HomeWebinar {
+    padding: 5px 0pt 5px 10px;
+}
+
+.HomeWebinarDate {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    float: left;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.HomeWebinarDate div.HomePost-month {
+    vertical-align: middle;
+    margin: 0pt;
+    padding: 0pt;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(102, 187, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.HomeWebinarDate div.HomePost-day {
+    margin-top: -5px;
+    width: 100%;
+    padding: 0pt;
+    position: absolute;
+    top: 12px;
+    left: 0px;
+    color: rgb(102, 102, 102);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+.HomeWebinarText {
+    margin-left: 45px;
+}
+
+.HomeWebinarText a {
+    color: rgb(238, 238, 238);
+    font-weight: normal;
+}
+
+.HomeBannerTitle {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(238, 238, 238);
+    margin-top: 40px;
+}
+
+#rightBillboard .views-row {
+    clear: both;
+}
+
+div#node-3306 {
+    margin-left: -10px;
+}
+
+.slideshow div#node-3306 {
+    margin-left: 0pt;
+}
+
+.banner-full {
+    margin-left: -10px;
+}
+
+.slideshow .banner-full {
+    margin-left: 0pt;
+}
+
+div.node-type-banner p {
+    margin: 0pt;
+}
+
+.banner-prev, .banner-next, .goto1, .goto2, .goto3 {
+    cursor: pointer;
+}
+
+#banner-pager {
+    position: absolute;
+    top: 14px;
+    left: 567px;
+    z-index: 51;
+}
+
+#banner-pager a {
+    padding: 3px;
+    color: rgb(0, 153, 204);
+    text-decoration: none;
+}
+
+#banner-pager a.activeSlide {
+    color: rgb(255, 255, 255);
+}
+
+#banner-nav {
+    position: absolute;
+    top: 9px;
+    left: 548px;
+    width: 82px;
+    height: 24px;
+    z-index: 50;
+}
+
+fieldset, h1.title-top {
+    display: none;
+}
+
+.homeLinkImage img {
+    height: 50px;
+    width: 50px;
+}
+
+.homeLinkTitle {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.homeLinkDescr {
+}
+
+.triColumnTable {
+    left: 5px;
+    position: absolute;
+    margin-right: 10px;
+}
+
+.triColumnTable tr {
+    padding: 0pt 5px 5px;
+}
+
+.triColumnTable td {
+    vertical-align: middle;
+}
+
+#triColumnBuild {
+    height: 290px;
+    position: relative;
+    width: 264px;
+    float: left;
+    padding: 13px 18px;
+    margin-right: 24px;
+    background: url('../images/bg_homemodule.png') no-repeat scroll left top transparent;
+}
+
+#triColumnRun {
+    height: 290px;
+    position: relative;
+    width: 260px;
+    float: left;
+    padding: 13px 20px;
+    margin-right: 24px;
+    background: url('../images/bg_homemodule.png') no-repeat scroll left top transparent;
+}
+
+#triColumnManage {
+    height: 290px;
+    position: relative;
+    width: 260px;
+    float: left;
+    padding: 13px 20px;
+    background: url('../images/bg_homemodule.png') no-repeat scroll left top transparent;
+}
+
+.triColumnHead {
+    color: rgb(238, 238, 238);
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.triColumnHead a {
+    color: rgb(255, 255, 255);
+    display: block;
+}
+
+.triColumnHead a:hover {
+    text-decoration: none;
+}
+
+#triColumn h2 {
+    font: bold 16px / 30px Arial;
+    color: rgb(0, 149, 211);
+    margin: 0pt 0pt -2px;
+}
+
+#triColumn h2 a {
+    color: rgb(0, 149, 211);
+}
+
+#triColumn p {
+    margin: 0pt 0pt 10px;
+    line-height: 18px;
+}
+
+#appPlatform img {
+    margin-bottom: -5px;
+}
+
+#appPlatform p {
+    margin-bottom: 15px;
+}

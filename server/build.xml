@@ -1,0 +1,126 @@
+<project name="cpagenie-server" default="install-server">
+    <property file="common.properties"/>
+    <property name="appname" value="server"/>
+    <property name="bindir" value="${basedir}/bin"/>
+    <property name="classesdir" value="${basedir}/classes"/>
+    <property name="configdir" value="${basedir}/config"/>
+    <property name="libdir" value="${basedir}/lib"/>
+    <property name="resourcesdir" value="${basedir}/resources"/>
+    <property name="sourcedir" value="${basedir}/src"/>
+    <property name="webdir" value="${basedir}/web"/>
+    <property name="temp.properties" value="temp.properties"/>
+
+    <path id="libraries">
+        <fileset dir="${libdir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="${classesdir}"/>
+        <mkdir dir="${classesdir}"/>
+    </target>
+
+    <target name="compile" depends="clean, copy-resources">
+        <javac srcdir="${sourcedir}" destdir="${classesdir}" source="1.5" target="1.5" debug="on"
+               classpathref="libraries"/>
+    </target>
+
+    <target name="compile-only" depends="clean">
+        <javac srcdir="${sourcedir}" destdir="${classesdir}" source="1.5" target="1.5" debug="on">
+            <exclude name="**/test/**"/>
+            <classpath>
+                <fileset dir="${libdir}" includes="**/*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="copy-resources">
+        <copy todir="${classesdir}">
+            <fileset dir="${sourcedir}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <antcall target="replace-tokens"/>
+        <copy todir="${classesdir}">
+            <fileset dir="${resourcesdir}" includes="*.*" excludes="template.*"/>
+        </copy>
+    </target>
+
+    <macrodef name="copy-templates">
+        <attribute name="src.dir"/>
+        <attribute name="dest.dir" default="@{src.dir}"/>
+        <attribute name="properties.file" default="${temp.properties}"/>
+        <sequential>
+            <copy todir="@{dest.dir}" overwrite="true" failonerror="false">
+                <fileset dir="@{src.dir}" includes="template.*"/>
+                <filterchain>
+                    <filterreader classname="org.apache.tools.ant.filters.ReplaceTokens">
+                        <param type="propertiesfile" value="@{properties.file}"/>
+                    </filterreader>
+                </filterchain>
+                <mapper type="glob" from="template.*" to="*"/>
+            </copy>
+        </sequential>
+    </macrodef>
+
+    <target name="echoproperties">
+        <property file="remap.properties"/>
+        <delete file="${temp.properties}"/>
+        <echoproperties destfile="${temp.properties}"/>
+    </target>
+
+    <target name="replace-tokens" depends="echoproperties">
+        <copy-templates src.dir="${resourcesdir}"/>
+    </target>
+
+    <target name="install-server" depends="compile">
+        <copy todir="${rootdir}/bin">
+            <fileset dir="${bindir}"/>
+        </copy>
+        <copy todir="${rootdir}/config">
+            <fileset dir="${configdir}"/>
+        </copy>
+        <mkdir dir="${rootdir}/logs"/>
+        <delete dir="${LOCAL_WEBAPPS}/${appname}"/>
+        <make-war dest.dir="${LOCAL_WEBAPPS}"/>
+        <copy-war src.dir="${LOCAL_WEBAPPS}" dest.dir="${rootdir}/webapps" app.name="${appname}"/>
+    </target>
+
+    <!--<target name="uninstall-server">-->
+    <!--<delete dir="${rootdir}" />-->
+    <!--</target>-->
+
+    <macrodef name="make-war">
+        <attribute name="app.name" default="${appname}"/>
+        <attribute name="classes.dir" default="${classesdir}"/>
+        <attribute name="dest.dir"/>
+        <attribute name="lib.dir" default="${libdir}"/>
+        <attribute name="src.dir" default="${sourcedir}"/>
+        <attribute name="web.dir" default="${webdir}"/>
+        <attribute name="war.file" default="@{dest.dir}/@{app.name}.war"/>
+        <attribute name="lib.excludes" default=""/>
+        <attribute name="war.excludes"
+                   default="**/.svn/**,*.log,*.log.lck,.classpath,.project,logger.properties,template.*"/>
+        <sequential>
+            <mkdir dir="@{dest.dir}"/>
+            <delete file="@{war.file}"/>
+            <war webxml="@{web.dir}/@{app.name}/WEB-INF/web.xml" destfile="@{war.file}" duplicate="fail">
+                <webinf dir="@{web.dir}/@{app.name}/WEB-INF" includes="**/*.*" excludes="@{war.excludes}"/>
+                <classes dir="@{classes.dir}" excludes="@{war.excludes}"/>
+                <classes dir="@{src.dir}" includes="**/*.xml" excludes="@{war.excludes}"/>
+                <lib dir="@{lib.dir}" includes="*.jar" excludes="@{lib.excludes}"/>
+                <fileset dir="@{web.dir}/@{app.name}" includes="**/*.*" excludes="WEB-INF/**"/>
+            </war>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copy-war">
+        <attribute name="src.dir"/>
+        <attribute name="dest.dir"/>
+        <attribute name="app.name"/>
+        <sequential>
+            <copy file="@{src.dir}/@{app.name}.war" todir="@{dest.dir}"/>
+        </sequential>
+    </macrodef>
+</project>

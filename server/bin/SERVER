@@ -1,0 +1,116 @@
+#!/bin/bash
+
+usage="Usage:  $0 <environment> [-p PORT]"
+VERBOSEGC=""
+WATCHDOG_ARGS=""
+
+RESIN=/mnt/common/resin
+export JAVA_HOME=/usr/java/jdk
+
+while [ "$1" != "" ] ; do
+if [ "$1" == "-p" ] ; then
+shift
+HTTP_PORT=$1
+shift
+elif [ "$1" == "-w" ] ; then
+shift
+WATCHDOG_PORT=$1
+WATCHDOG_ARGS=" -watchdog-port $WATCHDOG_PORT "
+shift
+elif [ "$1" == "-v" ] ; then
+shift
+VERSION=$1
+shift
+elif [ "$1" == "-Xmx" ] ; then
+shift
+Xmx=$1
+shift
+elif [ "$1" == "-Xms" ] ; then
+shift
+Xms=$1
+shift
+elif [ "$1" == "-ep" ] ; then
+shift
+EHCACHE_PORT=$1
+shift
+elif [ "$1" == "-verbosegc" ] ; then
+VERBOSEGC=" -J-XX:+PrintGCDetails -J-XX:+PrintGCTimeStamps -J-XX:+PrintGCApplicationStoppedTime -J-XX:+PrintTenuringDistribution "
+shift
+elif [ "$1" == "-runhprof" ] ; then
+CURR_DIR=`pwd`
+RUNHPROF=" -J-Xrunhprof:heap=sites,cpu=samples,file=$CURR_DIR/`hostname`.hprof "
+shift
+elif [ "$1" == "-jdk6" ] ; then
+export JAVA_HOME=/usr/local/jdk1.6.18
+shift
+else
+ENV=$1
+shift
+fi
+done
+
+CMD="$JAVA_HOME/bin/java -jar $RESIN/lib/resin.jar $WATCHDOG_ARGS"
+
+if [ "$ENV" == "" ] ; then
+echo "Environment not specifed"
+echo "$usage"
+exit
+fi
+
+if [ "$ENV" == "real" ] ; then
+  BASEDIR="/mnt/prod/server"
+  LOG_DIR="/mnt/prod/server/logs"
+elif [ "$ENV" == "staging" ] ; then
+  BASEDIR="/mnt/staging/server"
+  LOG_DIR=${LOG_DIR:=$BASEDIR/logs}
+elif [ -d "/mnt/dev/$ENV" ] ; then
+  BASEDIR="/mnt/dev/$ENV/server"
+  LOG_DIR=${LOG_DIR:=$BASEDIR/logs}
+else
+  echo "Environment $ENV not found"
+  exit
+fi
+
+CONF_FILE="$BASEDIR/config/server-resin.conf"
+
+export CLASSPATH=
+HOSTNAME=`hostname`
+export HOSTNAME
+
+DEPEND_CHECK=-1
+MAX_THREADS=3072
+KEEPALIVE_MAX=256
+KEEPALIVE_SECONDS=30
+HTTP_PORT=${HTTP_PORT:="9001"}
+WATCHDOG_PORT=${WATCHDOG_PORT:="7700"}
+export WATCHDOG_PORT
+Xms=${Xms:="128m"}
+Xmx=${Xmx:="1024m"}
+
+JVM_MEMORY=" -J-Xms$Xms -J-Xmx$Xmx "
+
+mkdir -p $LOG_DIR/stdout/
+STDOUT_LOG_FILE=$LOG_DIR/stdout/$HOSTNAME-$HTTP_PORT-server-stdout.log
+mkdir -p $LOG_DIR/stderr/
+STDERR_LOG_FILE=$LOG_DIR/stderr/$HOSTNAME-$HTTP_PORT-server-stderr.log
+mkdir -p $LOG_DIR/access/
+ACCESS_LOG_FILE=$LOG_DIR/access/$HOSTNAME-$HTTP_PORT-server-access.log
+mkdir -p $LOG_DIR/jvmlogs/
+JVM_LOG_FILE=$LOG_DIR/jvmlogs/$HOSTNAME-$HTTP_PORT-server-jvm.log.$$
+
+export STDOUT_LOG_FILE
+export STDERR_LOG_FILE
+export ACCESS_LOG_FILE
+export JVM_LOG_FILE
+
+WEBAPP_DEPLOY=$BASEDIR/webapps
+
+cd $BASEDIR
+
+echo $$ > "$LOG_DIR/jvmlogs/$HOSTNAME"-"$HTTP_PORT"-server.pid
+
+GC_OPT=" -J-XX:NewSize=256m -J-XX:MaxNewSize=256m -J-XX:+TraceClassUnloading -J-DappName=server -J-XX:+UseConcMarkSweepGC -J-XX:+UseParNewGC -J-XX:ParallelGCThreads=3 -J-XX:MaxTenuringThreshold=16 -J-XX:CMSFullGCsBeforeCompaction=1 -J-XX:MaxPermSize=256M -J-XX:+CMSParallelRemarkEnabled -J-XX:+CMSPermGenSweepingEnabled -J-XX:+CMSClassUnloadingEnabled -J-XX:+DisableExplicitGC -J-XX:CMSInitiatingOccupancyFraction=50 -J-XX:+UseCMSInitiatingOccupancyOnly "
+NEWCMD="$CMD -log-directory $BASEDIR/logs -verbose $VERBOSEGC $RUNHPROF  $GC_OPT $JVM_MEMORY -conf $CONF_FILE -J-DWATCHDOG_PORT=$WATCHDOG_PORT -J-Dhttp.maxConnections=12 -J-DlogFileSuffix=$HOSTNAME-$HTTP_PORT -J-DstdoutLog=$STDOUT_LOG_FILE -J-DstderrLog=$STDERR_LOG_FILE -J-DdependCheck=$DEPEND_CHECK -J-DmaxThreads=$MAX_THREADS -J-DkeepaliveMax=$KEEPALIVE_MAX -J-DkeepAliveMaxSeconds=$KEEPALIVE_SECONDS -J-DhttpPort=$HTTP_PORT -J-DaccessLog=$ACCESS_LOG_FILE -J-DwebappDeploy=$WEBAPP_DEPLOY -J-Dsun.net.inetaddr.ttl=300"
+echo ""
+echo $NEWCMD
+exec $NEWCMD  > $JVM_LOG_FILE 2>&1

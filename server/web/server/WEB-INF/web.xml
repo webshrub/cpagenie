@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>CPAGenie Server Application</display-name>
+    <description>CPAGenie Server Application</description>
+    <servlet>
+        <servlet-name>ImpressionReportLoaderServlet</servlet-name>
+        <servlet-class>com.webshrub.cpagenie.server.servlet.CPAGenieImpressionReportLoaderServlet</servlet-class>
+        <init-param>
+            <param-name>repeatDurationInMinutes</param-name>
+            <param-value>30</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>CampaignStatusLoaderServlet</servlet-name>
+        <servlet-class>com.webshrub.cpagenie.server.servlet.CPAGenieCampaignStatusLoaderServlet</servlet-class>
+        <init-param>
+            <param-name>repeatDurationInMinutes</param-name>
+            <param-value>1</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EmailReportLoaderServlet</servlet-name>
+        <servlet-class>com.webshrub.cpagenie.server.servlet.CPAGenieEmailReportLoaderServlet</servlet-class>
+        <init-param>
+            <param-name>repeatDurationInMinutes</param-name>
+            <param-value>86400</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>CPAGenieServlet</servlet-name>
+        <servlet-class>com.webshrub.cpagenie.server.servlet.CPAGenieServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+     <servlet>
+        <servlet-name>CPAGenieJSServelet</servlet-name>
+        <servlet-class>com.webshrub.cpagenie.server.servlet.CPAGenieJSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+      <servlet-mapping>
+        <servlet-name>CPAGenieJSServelet</servlet-name>
+        <url-pattern>/cpagenie.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CPAGenieServlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CPAGenieServlet</servlet-name>
+        <url-pattern>/tracking</url-pattern>
+    </servlet-mapping>
+</web-app>

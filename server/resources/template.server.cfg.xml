@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">@server.connection.driver_class@</property>
+        <property name="connection.url">@server.connection.url@</property>
+        <property name="connection.username">@server.connection.username@</property>
+        <property name="connection.password">@server.connection.password@</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">@server.dialect@</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Enable the second-level cache  -->
+        <property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+
+        <property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Mapping classes for database tables -->
+        <mapping class="com.webshrub.cpagenie.core.db.campaign.CPAGenieCampaign"/>
+        <mapping class="com.webshrub.cpagenie.core.db.campaign.response.CPAGenieCampaignResponse"/>
+        <mapping class="com.webshrub.cpagenie.core.db.campaign.field.CPAGenieCampaignField"/>
+        <mapping class="com.webshrub.cpagenie.core.db.campaign.delivery.CPAGenieCampaignDelivery"/>
+        <mapping class="com.webshrub.cpagenie.core.db.lead.CPAGenieLead"/>
+        <mapping class="com.webshrub.cpagenie.core.db.profane.CPAGenieProfane"/>
+        <mapping class="com.webshrub.cpagenie.core.db.advertiser.CPAGenieAdvertiser"/>
+        <mapping class="com.webshrub.cpagenie.core.db.report.CPAGenieImpressionReportRow"/>
+        <mapping class="com.webshrub.cpagenie.core.db.source.CPAGenieSource"/>
+        <mapping class="com.webshrub.cpagenie.core.db.tracking.CPAGenieTracking"/>
+        <mapping class="com.webshrub.cpagenie.core.db.vertical.CPAGenieVertical"/>
+        <mapping class="com.webshrub.cpagenie.server.db.job.CPAGenieJob"/>
+    </session-factory>
+</hibernate-configuration>

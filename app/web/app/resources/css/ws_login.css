@@ -1,0 +1,259 @@
+/* CSS Document */
+body {
+    background: url(../images/background.gif)
+}
+
+.backheadertop {
+    background: url(../images/body_header_back.gif);
+}
+
+.textheaderwhite {
+    font-family: arial, verdana;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.textbody {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.texterror {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.textwelcome {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #007aac;
+    text-decoration: none;
+}
+
+.colborderblue {
+    background: #4d79d5;
+}
+
+.linkfooter {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #737373;
+    text-decoration: underline;
+}
+
+.linkfooter:hover {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #006498;
+    text-decoration: none;
+}
+
+.textfooter {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #737373;
+    text-decoration: none;
+}
+
+.rightborder {
+    background: url(../images/body_rt_back.gif)
+}
+
+.nodeFolderBold {
+    font-size: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.dropdown {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    text-decoration: none;
+    width: 200px;
+}
+
+.narrowdropdown {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    text-decoration: none;
+    width: 50px;
+}
+
+.mediumdropdown {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    text-decoration: none;
+    width: 100px;
+}
+
+.addDeleteSelectList {
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.moveButtonVertical {
+    width: 40px;
+    font-size: 8px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.moveButton {
+    width: 40px;
+    font-size: 8px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    text-decoration: none
+}
+
+/* campaign box */
+.blue_bg {
+    background: url(../images/blue_dots_bg.gif);
+}
+
+.blue_bgtop {
+    background: url(../images/blue_left_corner.gif) no-repeat left top;
+}
+
+.blue_bgright {
+    background: url(../images/blue_right_corner.gif) no-repeat right top;
+}
+
+.blue_bgbl {
+    background: url(../images/blue_bottom_corner.gif) no-repeat left bottom;
+}
+
+.blue_bgbr {
+    background: url(../images/blue_bottom_rt_corner.gif) no-repeat right bottom;
+}
+
+.search_box {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #0085bc;
+    text-align: center;
+}
+
+.search_box input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #7f7f7f;
+}
+
+.blue_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #525252;
+    text-align: justify;
+}
+
+/* body table */
+
+.grey_box {
+    BORDER: #d8d8d8 1px solid;
+    BACKGROUND: #f8f8f8;
+}
+
+/* LIST OF FLIGHTS */
+.navy_blue {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-left: 10px;
+    background-color: #0086c4;
+    text-align: left;
+    height: 18px;
+}
+
+.light_grey {
+    background-color: #f4f4f4;
+    height: 20px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.dark_grey {
+    background-color: #eae9e9;
+    height: 20px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+/*General CSS*/
+.vabottom {
+    vertical-align: bottom;
+}
+
+.error {
+    font-family: verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FF0000;
+}
+
+.row0 {
+    background-color: #eae9e9;
+    height: 20px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.row1 {
+    background-color: #f4f4f4;
+    height: 20px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.selectedFilghtsTable {
+    width: 100%;
+}
+
+.red_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #F00;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.blue_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-align: justify;
+    text-transform: capitalize;
+
+}
+
+.error_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-align: justify;
+}
+
+.error_head {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
